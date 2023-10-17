@@ -42,7 +42,7 @@ const MatrizOperaciones = () => {
             <br/>
 
             <h1>Agregar un texto a un array</h1>
-            <button onClick={AgregarTexto}>Agregar texto</button>
+            <button onClick={agregarTexto}>Agregar texto</button>
             {
                 dias.map((item, index) =>
                      <p key={index}>
