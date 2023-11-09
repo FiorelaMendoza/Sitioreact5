@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import C01componente from './components/C01componente';
-import Variable from './components/C04variable';
-import MatrizOperaciones from './components/C07matrizOperaciones';
-import AppForm from './components/AppForm';
+import { useEffect, useState } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Dashboard from './public/Dashboard';
+import Home from './public/Home';
+import PublicRutas from './ruteo/PublicRutas';
+import ProtectedRutas from './ruteo/ProtectedRutas';
+import { AuthProvider, useAuth } from "./ruteo/AuthContext"
+
 
 
 function App() {
+const { user } = useAuth();
   return (
-    <div style={{background:"yellow", width:"350px", padding:"10px", TextAlign:"center"}}>
-      <h1>app.js</h1>
-      <AppForm></AppForm>
-      <i class="large material-icons">insert_chart</i>
-
-      <p>1. Juan Manuel 23 Masculino --------x A</p>
-      <p>2. Jose Victor 25 Masculino----- x B</p>
-      <p>3. Carlos Andres 56 Masculino........xC </p>
+    <div style={{background:"plum"}}>
+      <Router>
+      {user ? <ProtectedRutas /> : <PublicRutas/>}
+      </Router>
     </div>
   );
-
 }
-<i class="large material-icons">insert_chart</i>
+
 export default App;
